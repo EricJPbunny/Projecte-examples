@@ -5,11 +5,12 @@
 
 #define NUM_MODULES 4
 
+class Module;
+
 class ModuleWindow;
 class ModuleInput;
 class ModuleTextures;
 class ModuleRender;
-class Module;
 
 class Application
 {

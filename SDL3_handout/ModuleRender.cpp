@@ -34,6 +34,10 @@ bool ModuleRender::Init()
 
 	// TODO 9: load a texture "test.png" to test is everything works well
 
+	tex = App->textures->Load("test.png");
+
+	// TODO 9: DONE
+
 	return ret;
 }
 
@@ -42,7 +46,18 @@ update_status ModuleRender::PreUpdate()
 {
 	// TODO 7: Clear the screen to black before starting every frame
 
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderClear(renderer);
+
+	// TODO 7: DONE
+
 	// TODO 10: Blit our test texture to check functionality
+	SDL_Rect rect = { 0, 0, 538, 381 };
+
+	//SDL_RenderCopy(renderer, tex, &rect, NULL);
+	Blit(tex, 0, 0, &rect);
+
+	// TODO 10: DONE
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -50,6 +65,10 @@ update_status ModuleRender::PreUpdate()
 update_status ModuleRender::PostUpdate()
 {
 	// TODO 8: Switch buffers so we actually render
+
+	SDL_RenderPresent(renderer);
+
+	// TODO 8: DONE
 
 	return update_status::UPDATE_CONTINUE;
 }
